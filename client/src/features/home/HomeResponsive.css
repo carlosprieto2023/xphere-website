@@ -1,0 +1,205 @@
+/* ========================================
+   HOME — RESPONSIVE
+   ======================================== */
+
+/* ----- max-width: 1024px ----- */
+@media (max-width: 1024px) {
+  .hero__container {
+    grid-template-columns: 1fr;
+    gap: var(--space-l);
+  }
+
+  .hero__content {
+    max-width: none;
+  }
+
+  .hero__media {
+    order: -1;
+  }
+
+  .hero__image-composition {
+    max-width: 100%;
+  }
+
+  .hero__stats-card {
+    left: var(--space-md);
+    bottom: -0.75rem;
+  }
+
+  .hero__badge--top {
+    right: var(--space-md);
+  }
+
+  .how-timeline__step {
+    flex-direction: row;
+    gap: 1rem;
+  }
+
+  .how-timeline__box {
+    width: 4rem;
+    height: 4rem;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-m);
+  }
+
+  .services__metrics {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .services__metric--rule {
+    border-right: none;
+  }
+
+  .services__metric:nth-child(odd):not(:last-child) {
+    border-right: 1px solid rgba(0, 180, 216, 0.1);
+  }
+
+  .service-card__media {
+    min-height: 80px;
+    padding: var(--card-padding);
+  }
+
+  .service-card__body {
+    padding: var(--card-padding);
+  }
+}
+
+/* ----- max-width: 768px ----- */
+@media (max-width: 768px) {
+  .home #services.home-section {
+    padding-top: clamp(1.35rem, 3.75vh, 2.35rem);
+  }
+
+  .home #vehicles.home-section {
+    padding-top: clamp(1.85rem, 4.25vh, 2.85rem);
+  }
+
+  .home #about.home-section {
+    padding-top: clamp(1.75rem, 5vw, 2.75rem);
+    padding-bottom: clamp(1.75rem, 5vw, 2.75rem);
+  }
+
+  .home #contact.home-section {
+    scroll-margin-top: clamp(4rem, 9vw, 5.25rem);
+    padding-top: clamp(2.5rem, 9vw, 3.75rem);
+    padding-bottom: clamp(2.5rem, 9vw, 4rem);
+  }
+
+  .home #contact .contact-wrapper {
+    max-width: min(1000px, 100%);
+  }
+
+  .home #contact .contact__intro {
+    gap: clamp(0.75rem, 3vw, 1.1rem);
+    margin-bottom: clamp(1.2rem, 4vw, 1.65rem);
+  }
+
+  .home #contact .contact__meta {
+    padding-top: 0;
+  }
+
+  .hero:not(.hero--blueprint) {
+    padding-top: var(--space-3xl);
+  }
+
+  .hero__cta {
+    flex-direction: column;
+  }
+
+  .hero__cta .button {
+    width: 100%;
+  }
+
+  .contact-form__fields,
+  .contact-form__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-form {
+    padding: var(--space-m);
+  }
+
+  .contact-form__actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .contact-form__reassurance {
+    max-width: none;
+    text-align: center;
+  }
+
+  .button--contact-cta {
+    width: 100%;
+  }
+
+  .hero__stats-card {
+    flex-direction: column;
+    gap: var(--space-m);
+  }
+
+  .services-header__text {
+    font-size: var(--text-body);
+  }
+
+  .service-card__title {
+    font-size: var(--text-h3);
+  }
+
+  .service-card__media {
+    min-height: 72px;
+  }
+
+  .how-timeline__line {
+    left: 31px;
+  }
+
+  .how-timeline__step {
+    padding: 1.5rem 0;
+    flex-direction: row;
+    gap: 1rem;
+  }
+
+  .how-timeline__box {
+    width: 3.5rem;
+    height: 3.5rem;
+  }
+
+  .how-timeline__num {
+    font-size: 1rem;
+  }
+
+  .services__foot {
+    padding-left: 0.25rem;
+    padding-right: 0.25rem;
+  }
+
+  .services__trust-head {
+    text-align: left;
+    font-size: 10px;
+  }
+
+  .services__trust-list {
+    justify-content: flex-start;
+  }
+
+  .services__metrics {
+    grid-template-columns: 1fr;
+  }
+
+  .services__metric:nth-child(odd):not(:last-child) {
+    border-right: none;
+  }
+
+  .services__metric {
+    border-bottom: 1px solid rgba(0, 180, 216, 0.08);
+    padding: 0.75rem 0;
+  }
+
+  .services__metric:last-child {
+    border-bottom: none;
+  }
+}

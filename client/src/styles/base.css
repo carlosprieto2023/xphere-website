@@ -1,0 +1,88 @@
+/* Reset, defaults, and global layout */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  line-height: var(--line-height-body);
+  color: var(--text);
+  background: var(--bg);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+input,
+textarea,
+select,
+button {
+  font: inherit;
+}
+
+button,
+select,
+input,
+textarea {
+  transition:
+    border-color var(--transition-normal),
+    background-color var(--transition-normal),
+    box-shadow var(--transition-normal),
+    transform var(--transition-normal);
+}
+
+/* Focus indicators – WCAG 2.1: min 2px, 3:1 contrast against adjacent */
+button:focus-visible,
+a:focus-visible,
+.button:focus-visible {
+  outline: var(--focus-ring-width) solid var(--accent);
+  outline-offset: var(--focus-outline-offset);
+}
+
+/* Inputs and selects use box-shadow focus rings – suppress outline to avoid double indicator */
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: none;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--container-padding-x);
+  padding-right: var(--container-padding-x);
+}
+
+/* Skip link – visually hidden until focused, for keyboard users */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+}
+
+.skip-link:focus {
+  left: 20px;
+  top: 20px;
+  background: var(--accent);
+  color: var(--bg);
+  padding: 8px 14px;
+  border-radius: 8px;
+  z-index: 999;
+}

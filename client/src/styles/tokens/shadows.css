@@ -1,0 +1,23 @@
+/* Design tokens: shadows, radius, elevation */
+
+:root {
+  --shadow-sm: 0 8px 24px rgba(2, 6, 23, 0.2);
+  --shadow-md: 0 12px 30px rgba(2, 6, 23, 0.28);
+  --shadow-lg: 0 18px 40px rgba(2, 6, 23, 0.34);
+  --elevation-hover: 0 14px 32px rgba(2, 6, 23, 0.32);
+
+  --shadow-card: 0 4px 30px -4px hsl(200 100% 50% / 0.08);
+  --shadow-elevated: 0 12px 40px -8px hsl(200 100% 50% / 0.15);
+  --glow-primary: 0 0 20px hsl(200 100% 50% / 0.3);
+
+  /* Primary CTA / contact submit (paired with .button--hero) */
+  --shadow-button-primary: 0 4px 14px rgba(34, 211, 238, 0.35);
+  --shadow-button-primary-hover:
+    0 8px 24px rgba(34, 211, 238, 0.45), 0 0 32px rgba(34, 211, 238, 0.15);
+
+  --radius-xs: 6px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+}

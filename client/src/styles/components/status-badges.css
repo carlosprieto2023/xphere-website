@@ -1,0 +1,70 @@
+/* Status badge component */
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 28px;
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: 999px;
+  border: 1px solid transparent;
+  font-size: var(--text-label);
+  font-weight: 600;
+  line-height: var(--line-height-label);
+  letter-spacing: var(--tracking-normal);
+  white-space: nowrap;
+}
+
+.status-badge--new {
+  color: var(--status-new-text);
+  background: var(--status-new-bg);
+  border-color: var(--status-new-border);
+}
+
+.status-badge--contacted {
+  color: var(--status-progress-text);
+  background: var(--status-progress-bg);
+  border-color: var(--status-progress-border);
+}
+
+.status-badge--quoted {
+  color: #e9d5ff;
+  background: rgba(168, 85, 247, 0.16);
+  border-color: rgba(168, 85, 247, 0.35);
+}
+
+.status-badge--scheduled {
+  color: var(--status-progress-text);
+  background: var(--status-progress-bg);
+  border-color: var(--status-progress-border);
+}
+
+.status-badge--inspection_in_progress {
+  color: var(--status-progress-text);
+  background: var(--status-progress-bg);
+  border-color: var(--status-progress-border);
+}
+
+.status-badge--report_in_progress {
+  color: var(--status-progress-text);
+  background: var(--status-progress-bg);
+  border-color: var(--status-progress-border);
+}
+
+.status-badge--report_sent {
+  color: #c4b5fd;
+  background: rgba(124, 58, 237, 0.16);
+  border-color: rgba(124, 58, 237, 0.35);
+}
+
+.status-badge--closed {
+  color: var(--status-closed-text);
+  background: var(--status-closed-bg);
+  border-color: var(--status-closed-border);
+}
+
+.status-badge--unassigned {
+  color: var(--status-unassigned-text);
+  background: var(--status-unassigned-bg);
+  border-color: var(--status-unassigned-border);
+}

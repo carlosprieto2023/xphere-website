@@ -1,0 +1,103 @@
+/**
+ * Design tokens: root + semantic (matches xphere-auto-inspect / Tailwind base)
+ * Root values use space-separated HSL for compatibility.
+ * Semantic vars map to full colors for use in plain CSS.
+ */
+
+:root {
+  /* ----- Root (Tailwind/shadcn format) ----- */
+  --background: 215 35% 7%;
+  --foreground: 210 20% 88%;
+
+  --card: 215 30% 10%;
+  --card-foreground: 210 20% 88%;
+
+  --popover: 215 30% 10%;
+  --popover-foreground: 210 20% 88%;
+
+  --primary: 200 100% 50%;
+  --primary-foreground: 215 35% 7%;
+
+  --secondary: 215 25% 14%;
+  --secondary-foreground: 210 15% 70%;
+
+  --muted: 215 20% 18%;
+  --muted-foreground: 210 10% 50%;
+
+  --accent: 200 100% 50%;
+  --accent-foreground: 215 35% 7%;
+
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 210 20% 88%;
+
+  --border: 200 60% 20%;
+  --input: 215 25% 14%;
+  --ring: 200 100% 50%;
+
+  --radius: 0rem;
+
+  --font-display: 'Orbitron', sans-serif;
+  --font-body: 'IBM Plex Mono', monospace;
+
+  --shadow-card: 0 4px 30px -4px hsl(200 100% 50% / 0.08);
+  --shadow-elevated: 0 12px 40px -8px hsl(200 100% 50% / 0.15);
+  --glow-primary: 0 0 20px hsl(200 100% 50% / 0.3);
+  --glow-strong:
+    0 0 40px hsl(200 100% 50% / 0.4), 0 0 80px hsl(200 100% 50% / 0.15);
+
+  --sidebar-background: 215 30% 8%;
+  --sidebar-foreground: 210 15% 70%;
+  --sidebar-primary: 200 100% 50%;
+  --sidebar-primary-foreground: 215 35% 7%;
+  --sidebar-accent: 215 25% 14%;
+  --sidebar-accent-foreground: 210 15% 70%;
+  --sidebar-border: 200 60% 20%;
+  --sidebar-ring: 200 100% 50%;
+
+  /* ----- Semantic: full color values for use in CSS ----- */
+  --bg: hsl(var(--background));
+  --fg: hsl(var(--foreground));
+  --text: hsl(var(--foreground));
+  --text-primary: hsl(var(--foreground));
+  --text-secondary: hsl(var(--secondary-foreground));
+  --muted: hsl(var(--muted-foreground));
+  --muted-2: hsl(210 12% 45%);
+  --accent: hsl(var(--primary));
+  --accent-strong: hsl(200 100% 55%);
+  --accent-dark: hsl(var(--primary-foreground));
+  --accent-hover: hsl(200 100% 55%);
+  --accent-focus: hsl(200 100% 60%);
+  --accent-subtle: hsl(200 100% 50% / 0.12);
+  --accent-border-hover: hsl(200 80% 45%);
+  --accent-ring-muted: 0 0 0 1px hsl(200 60% 40% / 0.25);
+  --accent-ring-subtle: 0 0 0 1px hsl(200 100% 50% / 0.2);
+
+  --surface: hsl(var(--card));
+  --surface-alt: hsl(var(--secondary));
+  --surface-strong: hsl(215 30% 18%);
+  --surface-hover: hsl(215 28% 16%);
+  --surface-input: hsl(var(--input));
+  --surface-dark: hsl(215 28% 12%);
+  --surface-dark-2: hsl(215 30% 10%);
+
+  --bg-elevated: hsl(215 32% 9%);
+
+  --border: hsl(var(--border));
+  --border-card: hsl(200 50% 18%);
+  --border-soft: hsl(200 40% 22%);
+  --border-subtle: hsl(200 35% 24%);
+  --border-list-item: hsl(200 40% 20%);
+  --border-divider: hsl(200 35% 22%);
+
+  --danger: hsl(var(--destructive));
+  --danger-strong: hsl(0 85% 65%);
+  --danger-surface-strong: hsl(0 84% 60% / 0.15);
+  --danger-surface-hover: hsl(0 84% 60% / 0.08);
+  --danger-border: hsl(0 70% 55% / 0.4);
+  --danger-border-hover: hsl(0 70% 55% / 0.6);
+  --text-on-danger: hsl(var(--destructive-foreground));
+
+  /* Blueprint grid – exact values from example */
+  --blueprint-grid-color: hsl(200 60% 30% / 0.12);
+  --blueprint-grid-color-fine: hsl(200 60% 30% / 0.06);
+}

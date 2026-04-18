@@ -1,0 +1,38 @@
+/* Design tokens: motion, transitions, animation */
+
+:root {
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.2s ease;
+  --transition-smooth: 0.25s ease;
+
+  --ease-out: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+
+  --focus-ring-width: 4px;
+  --focus-outline-offset: 2px;
+
+  --container-max-width: 1400px;
+  --container-padding-x: 2rem;
+
+  --card-padding: var(--space-sm);
+  --card-padding-lg: var(--space-lg);
+  --card-gap: var(--space-s);
+  --card-gap-tight: var(--space-xs);
+  --card-icon-size: 36px;
+  --card-icon-size-lg: 44px;
+
+  --btn-cta-height: 44px;
+  --btn-compact-height: 36px;
+  --btn-cta-padding: var(--space-sm) var(--space-m);
+  --btn-cta-font-size: 1rem;
+  --btn-group-gap: var(--space-sm);
+
+  --button-lift-sm: -1px;
+  --button-lift-md: -2px;
+
+  --input-height: 44px;
+  --input-padding-y: 0.625rem;
+  --input-padding-x: var(--space-m);
+  --input-inset-highlight: inset 0 1px 0 rgba(255, 255, 255, 0.03);
+  --textarea-min-height: 120px;
+}

@@ -1,0 +1,44 @@
+/**
+ * Component: form feedback messages
+ */
+
+@keyframes formMessageFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.form-message {
+  margin: 0;
+  padding: var(--card-padding);
+  border-radius: var(--radius-sm);
+  font-size: var(--text-body);
+  font-weight: 500;
+}
+
+.form-message--success {
+  background: rgba(34, 211, 238, 0.12);
+  color: var(--accent);
+  border: 1px solid rgba(34, 211, 238, 0.25);
+}
+
+.form-message--error {
+  background: var(--danger-surface-strong);
+  color: var(--error);
+  border: 1px solid var(--danger-border);
+}
+
+.form-message--banner {
+  margin-bottom: var(--rhythm-block);
+  padding: var(--rhythm-block);
+  animation: formMessageFadeIn 0.3s ease;
+}
+
+.form-message.success {
+  background: rgba(34, 211, 238, 0.12);
+  color: var(--accent);
+}
+
+.form-message.error {
+  background: var(--danger-surface-strong);
+  color: var(--error);
+}

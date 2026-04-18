@@ -1,0 +1,31 @@
+/* ========================================
+   HOME — LAYOUT (page shell, shared animation)
+   ======================================== */
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.home-section {
+  animation: fadeInUp 0.5s var(--ease-out) both;
+}
+
+/* Override index.html critical styles — padding on main squeezed / clipped long sections */
+main.home {
+  padding: 0;
+  overflow: visible;
+  min-height: min-content;
+}
+
+/* Full-viewport min-height made every block feel oversized; rhythm comes from padding + scroll-margin tokens */
+.home .section.section--centered {
+  min-height: 0;
+  display: block;
+}

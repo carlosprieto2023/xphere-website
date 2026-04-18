@@ -1,0 +1,171 @@
+/* ========================================
+   HOME — CONTACT
+   #contact shell + global contact chrome
+======================================== */
+
+/* Contact section shell */
+.home #contact.home-section {
+  scroll-margin-top: var(--section-scroll-margin-top);
+  padding: var(--space-4xl) 0;
+  min-height: min-content;
+  height: auto;
+  max-height: none;
+  animation: none;
+  overflow: visible;
+}
+
+.home #contact.home-section .section__content {
+  position: relative;
+  z-index: 10;
+  overflow: visible;
+  min-height: min-content;
+  height: auto;
+  max-height: none;
+}
+
+.home #contact .contact-wrapper {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  gap: 0;
+  width: 100%;
+  max-width: min(58.75rem, 100%);
+  margin-inline: auto;
+  min-height: min-content;
+  overflow: visible;
+}
+
+/* Intro stack */
+.home #contact .contact__intro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-xl);
+}
+
+.home #contact .contact-header {
+  margin-bottom: 0;
+  width: 100%;
+}
+
+.home #contact .contact-header .contact__eyebrow,
+.home #contact .contact-header .section__eyebrow {
+  margin-bottom: var(--space-xs);
+}
+
+.home #contact .contact__title {
+  margin: 0 0 var(--space-xs);
+}
+
+.home #contact .contact__lead {
+  margin: 0 auto;
+  max-width: 38rem;
+}
+
+.home #contact .contact__meta {
+  margin: 0 auto;
+  padding-top: var(--space-sm);
+  width: 100%;
+  max-width: 38rem;
+  justify-content: center;
+  row-gap: var(--space-sm);
+  column-gap: var(--space-xl);
+  font-size: var(--text-small);
+  font-weight: 500;
+  color: var(--text-secondary);
+  border-top: 1px solid rgba(80, 150, 255, 0.12);
+}
+
+/* Section modifiers */
+.section--contact {
+  background: var(--surface-alt);
+}
+
+.section__contact-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    var(--surface-alt) 0%,
+    rgba(255, 255, 255, 0.02) 50%,
+    var(--surface-alt) 100%
+  );
+  pointer-events: none;
+}
+
+.contact-wrapper {
+  max-width: 50rem;
+  margin: 0 auto;
+}
+
+.contact-header {
+  text-align: center;
+  margin: 0 auto var(--space-lg);
+}
+
+.contact-header .contact__eyebrow,
+.contact-header .section__eyebrow {
+  margin-bottom: var(--space-sm);
+}
+
+.contact__title {
+  margin: 0;
+  font-size: var(--text-h2);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  line-height: var(--line-height-heading);
+}
+
+.contact__lead {
+  margin: var(--space-md) auto 0;
+  max-width: 36rem;
+  text-align: center;
+  color: var(--muted);
+  font-size: var(--text-small);
+  line-height: var(--line-height-relaxed);
+}
+
+/* Home-specific polish */
+.home .contact-wrapper {
+  max-width: min(58.75rem, 100%);
+}
+
+.home .contact__title {
+  text-shadow: 0 0 25px rgba(59, 130, 246, 0.18);
+}
+
+.home .contact__lead {
+  opacity: 0.88;
+  max-width: 38rem;
+}
+
+.home .contact__meta {
+  gap: var(--space-xl);
+  align-items: center;
+}
+
+.home #contact .contact__meta-item {
+  gap: var(--space-xs);
+  align-items: center;
+  line-height: 1.2;
+}
+
+.home #contact .contact__meta-item svg {
+  width: 1.0625rem;
+  height: 1.0625rem;
+  color: var(--accent);
+  opacity: 0.95;
+}
+
+.home #contact .contact__meta-item a {
+  color: var(--text-primary);
+  opacity: 0.9;
+}
+
+.home #contact .contact__meta-item a:hover {
+  opacity: 1;
+  color: var(--accent-hover);
+}

@@ -1,0 +1,53 @@
+/* Shared card and list surfaces */
+
+.card,
+.dashboard-card {
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-lg);
+  background: linear-gradient(
+    180deg,
+    var(--surface) 0%,
+    rgba(255, 255, 255, 0.03) 100%
+  );
+  box-shadow: var(--shadow-sm);
+}
+
+.card,
+.dashboard-card,
+.panel-list li,
+.detail-notes-list li,
+.detail-activity-list li,
+.dashboard-notes li {
+  transition:
+    box-shadow var(--transition-normal),
+    border-color var(--transition-normal),
+    transform var(--transition-normal);
+}
+
+.card:hover,
+.dashboard-card:hover {
+  transform: translateY(calc(-1 * var(--space-2xs)));
+  border-color: rgba(34, 211, 238, 0.35);
+  box-shadow: var(--shadow-md);
+}
+
+.panel-list,
+.detail-notes-list,
+.detail-activity-list,
+.detail-attachments-list,
+.dashboard-notes ul {
+  margin: var(--space-lg) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.panel-list li,
+.detail-notes-list li,
+.detail-activity-list li,
+.dashboard-notes li {
+  margin-bottom: var(--space-md);
+  padding: var(--space-lg);
+  border: 1px solid var(--border-list-item);
+  border-radius: var(--radius-sm);
+  background: var(--surface-alt);
+}

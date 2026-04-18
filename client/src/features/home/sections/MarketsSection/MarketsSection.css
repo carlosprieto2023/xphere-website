@@ -1,0 +1,111 @@
+/* ========================================
+   MARKETS SECTION
+   Who we serve
+======================================== */
+
+/* Section overlay */
+
+.section__markets-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    var(--bg) 0%,
+    transparent 50%,
+    var(--bg) 100%
+  );
+  pointer-events: none;
+}
+
+.section__bottom-line--markets {
+  background: rgba(0, 180, 216, 0.15);
+}
+
+/* Header */
+
+.markets__header {
+  text-align: center;
+  max-width: var(--content-max-narrow);
+  margin-inline: auto;
+  margin-bottom: var(--space-2xl);
+}
+
+.markets__eyebrow {
+  margin-bottom: var(--space-sm);
+  opacity: 0.85;
+}
+
+.markets__title {
+  margin: 0 0 var(--space-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.markets__intro {
+  margin: 0 auto;
+  max-width: 36rem;
+  opacity: 0.9;
+}
+
+/* Grid layout */
+
+.markets__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-lg);
+  max-width: 72rem;
+  margin-inline: auto;
+}
+
+/* Card adjustments (keeps shared service-card system clean) */
+
+.markets__card {
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.markets__card .service-card__header {
+  margin-bottom: var(--space-xs);
+}
+
+.markets__card .service-card__icon svg {
+  width: 1.625rem;
+  height: 1.625rem;
+}
+
+/* Hover only on desktop */
+
+@media (hover: hover) and (pointer: fine) {
+  .markets__card:hover {
+    transform: translateY(calc(-1 * var(--space-xs)));
+    border-color: rgba(80, 150, 255, 0.5);
+    box-shadow: 0 18px 50px rgba(0, 0, 0, 0.32);
+  }
+}
+
+/* Tablet */
+
+@media (max-width: 1024px) {
+  .markets__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Mobile */
+
+@media (max-width: 768px) {
+  .markets__grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+}
+
+/* Motion accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+  .markets__card:hover {
+    transform: none;
+  }
+}

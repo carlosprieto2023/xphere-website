@@ -1,0 +1,32 @@
+/* Design tokens: typography */
+
+:root {
+  --font-display: 'Orbitron', sans-serif;
+  --font-body: 'IBM Plex Mono', monospace;
+
+  --text-h1: clamp(2.25rem, 5vw, 3.75rem);
+  --text-h2: clamp(1.875rem, 3vw, 2.25rem);
+  --text-h3: 1.125rem;
+  --text-body: 1rem;
+  --text-small: 0.875rem;
+  --text-label: 0.75rem;
+  --text-caption: 0.6875rem;
+
+  --line-height-heading: 1.25;
+  --line-height-body: 1.6;
+  --line-height-relaxed: 1.65;
+  --line-height-tight: var(--line-height-heading);
+  --line-height-label: 1.4;
+
+  --tracking-tight: -0.02em;
+  --tracking-normal: 0;
+  --tracking-wide: 0.05em;
+  --tracking-widest: 0.3em;
+
+  --section-header-margin: var(--space-m);
+  --section-content-gap: var(--space-m);
+  --content-max-tight: 380px;
+  --content-max-narrow: 560px;
+  --content-max-mid: 920px;
+  --content-max-wide: 1040px;
+}

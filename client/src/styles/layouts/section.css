@@ -1,0 +1,52 @@
+/**
+ * Layout: section patterns
+ * Landing Hero uses <section class="hero"> — never `.section`, so it never picks up these rules.
+ */
+
+.section:not(.hero) {
+  position: relative;
+  padding-block: var(--section-padding-block);
+  padding-inline: 0;
+  scroll-margin-top: var(--section-scroll-margin-top);
+  transition: background var(--transition-smooth);
+}
+
+/* Main column inside `<section class="section">` — above absolute bg/overlay layers */
+.section__content {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+}
+
+.section--centered {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+/* Contact: long form — never use viewport-framed flex from .section--centered; height follows content */
+.section.section--contact {
+  display: block;
+  min-height: 0;
+  height: auto;
+  max-height: none;
+  overflow: visible;
+}
+
+.section.section--contact .section__content {
+  overflow: visible;
+  min-height: min-content;
+  height: auto;
+  max-height: none;
+}
+
+.section--blueprint .section__blueprint-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.section__title-accent {
+  color: var(--accent);
+}

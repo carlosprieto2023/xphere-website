@@ -1,0 +1,1008 @@
+/* Landing hero: presentation lives in global css/components/hero.css; home breakpoints in HomeResponsive.css */
+/**
+ * Component: hero section
+ * Base styles apply to all heroes; .hero--blueprint overrides for the landing variant.
+ */
+
+/* -----------------------------------------------------------------------------
+ * Keyframes
+ * ----------------------------------------------------------------------------- */
+
+@keyframes imageFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes heroFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(calc(-1 * var(--space-2xs)));
+  }
+}
+
+@keyframes heroFloatMobile {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(calc(-1 * var(--space-2xs) / 2));
+  }
+}
+
+/* -----------------------------------------------------------------------------
+ * Base: hero shell
+ * ----------------------------------------------------------------------------- */
+
+/**
+ * Hero is not a `.section` — it never uses section padding tokens.
+ * All vertical rhythm here is explicit (padding + optional blueprint min-height).
+ */
+.hero {
+  position: relative;
+  margin: 0;
+  padding-top: var(--space-xl);
+  padding-bottom: var(--space-xl);
+  padding-left: 0;
+  padding-right: 0;
+  overflow: hidden;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(34, 211, 238, 0.02) 30%,
+    transparent 100%
+  );
+}
+
+.hero__bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(
+      ellipse 90% 60% at 75% 15%,
+      rgba(34, 211, 238, 0.14),
+      transparent 55%
+    ),
+    radial-gradient(
+      ellipse 70% 50% at 5% 85%,
+      rgba(59, 130, 246, 0.1),
+      transparent 50%
+    );
+  pointer-events: none;
+}
+
+/* -----------------------------------------------------------------------------
+ * Base: layout
+ * ----------------------------------------------------------------------------- */
+
+.hero__container {
+  position: relative;
+}
+
+.hero__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4xl);
+  align-items: center;
+}
+
+.hero__content {
+  min-width: 0;
+  position: relative;
+  z-index: 2;
+}
+
+.hero__media {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero__visual {
+  z-index: 1;
+}
+
+/* Floating hero image panel + layered ambient glow (blueprint) */
+.hero__image-panel {
+  position: relative;
+  width: 100%;
+}
+
+.hero__media-glow-depth {
+  position: absolute;
+  z-index: 0;
+  left: 50%;
+  top: 50%;
+  width: min(104%, 600px);
+  height: min(78%, 465px);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  background: radial-gradient(
+    circle at center,
+    rgba(80, 150, 255, 0.12) 0%,
+    rgba(90, 145, 255, 0.05) 38%,
+    transparent 60%
+  );
+  filter: blur(48px);
+  opacity: 0.12;
+}
+
+.hero__media-glow {
+  position: absolute;
+  z-index: 1;
+  left: 50%;
+  top: 48%;
+  width: min(114%, 680px);
+  height: min(82%, 515px);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  background: radial-gradient(
+    circle at 50% 44%,
+    rgba(80, 150, 255, 0.1) 0%,
+    rgba(95, 160, 255, 0.04) 42%,
+    transparent 62%
+  );
+  filter: blur(46px);
+  opacity: 0.17;
+}
+
+.hero--blueprint .hero__image-panel {
+  animation: heroFloat 12s ease-in-out infinite;
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero--blueprint .hero__image-panel {
+    animation: none;
+    transform: none;
+    will-change: auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) and (max-width: 768px) {
+  .hero--blueprint .hero__image-panel {
+    transform: none;
+  }
+}
+
+/* -----------------------------------------------------------------------------
+ * Base: typography & CTA
+ * ----------------------------------------------------------------------------- */
+
+.hero__eyebrow,
+.eyebrow {
+  display: inline-block;
+  color: var(--accent);
+  font-size: var(--text-label);
+  font-weight: 700;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  margin-bottom: var(--rhythm-title);
+}
+
+.hero__title {
+  margin: 0 0 var(--rhythm-title);
+  font-size: var(--text-h1);
+  font-weight: 700;
+  line-height: var(--line-height-heading);
+  letter-spacing: var(--tracking-tight);
+}
+
+.hero__title-line {
+  display: block;
+}
+
+.hero__title-line--accent {
+  color: var(--accent);
+  margin-top: var(--space-xs);
+}
+
+.hero__text {
+  display: flex;
+  flex-direction: column;
+  max-width: 620px;
+  width: 100%;
+  min-width: 0;
+}
+
+.hero__description {
+  margin: 0 0 var(--rhythm-block);
+  color: var(--muted);
+  font-size: var(--text-body);
+  line-height: var(--line-height-relaxed);
+}
+
+.hero__cta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-md);
+  margin-bottom: var(--space-md);
+}
+
+.hero__cta .button {
+  margin-top: 0;
+}
+
+.hero__trust-wrapper {
+  margin-top: var(--space-lg);
+  padding-top: var(--space-md);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  max-width: 100%;
+  min-width: 0;
+}
+
+.hero__trust {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-md) var(--space-xl);
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.hero__trust-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  min-width: 0;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.4;
+  opacity: 0.9;
+}
+
+.hero__trust-item svg {
+  flex-shrink: 0;
+  color: var(--accent);
+}
+
+/* -----------------------------------------------------------------------------
+ * Base: image frame & fallback
+ * ----------------------------------------------------------------------------- */
+
+.hero__image-composition {
+  position: relative;
+  width: 100%;
+  max-width: var(--content-max-narrow);
+}
+
+.hero__image-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  background: linear-gradient(
+    135deg,
+    var(--surface-alt) 0%,
+    rgba(34, 211, 238, 0.04) 100%
+  );
+}
+
+.hero__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  animation: imageFadeIn 0.6s var(--ease-out) 0.2s both;
+}
+
+.hero__fallback {
+  position: absolute;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(
+    135deg,
+    rgba(34, 211, 238, 0.08) 0%,
+    rgba(59, 130, 246, 0.06) 50%,
+    transparent 100%
+  );
+}
+
+.hero__fallback--visible {
+  display: flex;
+  animation: imageFadeIn 0.5s var(--ease-out) both;
+}
+
+.hero__fallback-shape {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(34, 211, 238, 0.12);
+}
+
+.hero__fallback-shape--1 {
+  width: 60%;
+  height: 60%;
+  top: 10%;
+  right: 5%;
+}
+
+.hero__fallback-shape--2 {
+  width: 35%;
+  height: 35%;
+  bottom: 15%;
+  left: 10%;
+  background: rgba(59, 130, 246, 0.1);
+}
+
+.hero__fallback-shape--3 {
+  width: 20%;
+  height: 20%;
+  top: 50%;
+  left: 30%;
+  background: rgba(34, 211, 238, 0.08);
+}
+
+.hero__fallback-icon {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  color: var(--accent);
+  opacity: 0.5;
+}
+
+/* -----------------------------------------------------------------------------
+ * Base: stats, badge, trust (optional overlay elements)
+ * ----------------------------------------------------------------------------- */
+
+.hero__stats-card {
+  position: absolute;
+  bottom: calc(-1 * var(--space-md));
+  left: calc(-1 * var(--space-xs));
+  display: flex;
+  gap: var(--space-lg);
+  padding: var(--space-md) var(--space-lg);
+  background: linear-gradient(
+    180deg,
+    var(--surface-dark-2) 0%,
+    var(--bg-elevated) 100%
+  );
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+}
+
+.hero__stats-row {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.hero__stats-value {
+  display: block;
+  font-size: var(--text-h2);
+  font-weight: 700;
+  color: var(--accent);
+  line-height: var(--line-height-heading);
+}
+
+.hero__stats-label {
+  font-size: var(--text-label);
+  line-height: var(--line-height-label);
+  color: var(--muted-2);
+}
+
+.hero__badge {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-xs) var(--space-md);
+  font-size: var(--text-small);
+  font-weight: 600;
+  color: var(--text);
+  background: var(--surface-dark-2);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  box-shadow: var(--shadow-sm);
+}
+
+.hero__badge svg {
+  color: var(--accent);
+}
+
+.hero__badge--top {
+  top: calc(-1 * var(--space-xs));
+  right: calc(-1 * var(--space-xs));
+}
+
+/* =============================================================================
+ * Blueprint variant: .hero--blueprint
+ * ============================================================================= */
+
+.hero--blueprint {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+  box-sizing: border-box;
+  min-height: 100vh;
+  min-height: 100svh;
+  min-height: 100dvh;
+  margin-bottom: 0;
+  padding-top: calc(var(--header-height) + var(--space-md));
+  padding-bottom: var(--space-2xl);
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.hero--blueprint .hero__blueprint-bg,
+.hero--blueprint .hero__gradient-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.hero--blueprint .hero__gradient-overlay {
+  background: linear-gradient(
+    to bottom right,
+    var(--bg) 0%,
+    var(--bg) 95%,
+    rgba(0, 180, 216, 0.05) 100%
+  );
+}
+
+.hero--blueprint .hero__container {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  min-height: 0;
+}
+
+.hero--blueprint .hero__grid {
+  position: relative;
+}
+
+.hero--blueprint .hero__grid::before {
+  content: '';
+  position: absolute;
+  top: 8%;
+  bottom: 11%;
+  left: calc(50% - min(3.5rem, 5vw));
+  width: min(7.5rem, 18vw);
+  transform: translateX(-50%);
+  pointer-events: none;
+  z-index: 2;
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(80, 150, 255, 0.038) 48%,
+    transparent 100%
+  );
+}
+
+.hero--blueprint .hero__content {
+  z-index: 3;
+}
+
+.hero--blueprint .hero__visual {
+  z-index: 1;
+}
+
+/* Blueprint: typography overrides */
+.hero--blueprint .hero__eyebrow-box {
+  display: inline-block;
+  border: 1px solid rgba(0, 180, 216, 0.4);
+  padding: var(--space-xs) var(--space-md);
+  margin-bottom: var(--space-lg);
+  transform-origin: left;
+}
+
+.hero--blueprint .hero__eyebrow {
+  margin: 0;
+  font-size: 9px;
+  letter-spacing: 0.5em;
+}
+
+.hero--blueprint .hero__title {
+  font-size: 2.25rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 1.1;
+  margin-bottom: var(--space-lg);
+}
+
+.hero--blueprint .hero__title-accent {
+  color: var(--accent);
+  text-shadow: 0 0 15px rgba(0, 180, 216, 0.5);
+}
+
+.hero--blueprint .hero__description {
+  font-size: 0.875rem;
+  max-width: 24rem;
+  margin-bottom: var(--space-xl);
+}
+
+/* Blueprint: image — soft panel, no hard border; masks + overlays integrate into bg */
+.hero--blueprint .hero__image-frame--blueprint {
+  position: relative;
+  z-index: 2;
+  aspect-ratio: unset;
+  min-height: 420px;
+  padding: 0;
+  border: none;
+  border-radius: var(--radius-lg);
+  background: transparent;
+  overflow: hidden;
+  transform: scale(1.065);
+  transform-origin: 68% 50%;
+  box-shadow:
+    0 30px 80px rgba(0, 0, 0, 0.35),
+    0 22px 56px rgba(0, 0, 0, 0.28),
+    0 0 48px rgba(80, 150, 255, 0.055),
+    0 0 28px rgba(100, 175, 255, 0.035);
+}
+
+.hero--blueprint .hero__image-frame--blueprint::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.045;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.hero--blueprint .hero__image-frame--blueprint::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background:
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 0%, transparent 35%),
+    linear-gradient(
+      135deg,
+      rgba(80, 150, 255, 0.05) 0%,
+      transparent 50%,
+      transparent 100%
+    ),
+    linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.2) 0%,
+      transparent 38%,
+      transparent 62%,
+      rgba(0, 0, 0, 0.3) 100%
+    ),
+    linear-gradient(
+      to right,
+      hsl(var(--background) / 0) 0%,
+      hsl(var(--background) / 0.015) 18%,
+      hsl(var(--background) / 0.05) 34%,
+      hsl(var(--background) / 0.11) 46%,
+      hsl(var(--background) / 0.26) 56%,
+      hsl(var(--background) / 0.48) 66%,
+      hsl(var(--background) / 0.76) 82%,
+      var(--bg) 100%
+    );
+}
+
+.hero--blueprint .hero__image-stack {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  border-radius: inherit;
+  -webkit-mask-image:
+    linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.35) 0%,
+      rgba(0, 0, 0, 0.82) 6%,
+      rgba(0, 0, 0, 0.98) 14%,
+      #000 24%,
+      rgba(0, 0, 0, 0.97) 40%,
+      rgba(0, 0, 0, 0.74) 54%,
+      rgba(0, 0, 0, 0.4) 68%,
+      rgba(0, 0, 0, 0.14) 84%,
+      rgba(0, 0, 0, 0) 100%
+    ),
+    linear-gradient(
+      to bottom,
+      #000 0%,
+      #000 76%,
+      rgba(0, 0, 0, 0.32) 91%,
+      rgba(0, 0, 0, 0.08) 97%,
+      rgba(0, 0, 0, 0) 100%
+    );
+  mask-image:
+    linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.35) 0%,
+      rgba(0, 0, 0, 0.82) 6%,
+      rgba(0, 0, 0, 0.98) 14%,
+      #000 24%,
+      rgba(0, 0, 0, 0.97) 40%,
+      rgba(0, 0, 0, 0.74) 54%,
+      rgba(0, 0, 0, 0.4) 68%,
+      rgba(0, 0, 0, 0.14) 84%,
+      rgba(0, 0, 0, 0) 100%
+    ),
+    linear-gradient(
+      to bottom,
+      #000 0%,
+      #000 76%,
+      rgba(0, 0, 0, 0.32) 91%,
+      rgba(0, 0, 0, 0.08) 97%,
+      rgba(0, 0, 0, 0) 100%
+    );
+  -webkit-mask-composite: source-in;
+  mask-composite: intersect;
+}
+
+.hero--blueprint .hero__image--blueprint {
+  width: 100%;
+  height: 100%;
+  min-height: 400px;
+  object-fit: cover;
+  display: block;
+  opacity: 1;
+  filter: brightness(0.9) contrast(1.05) saturate(0.94);
+}
+
+/* Blueprint: corners (L-brackets at viewport edges) */
+.hero__corner {
+  position: absolute;
+  z-index: 12;
+  width: var(--space-4xl);
+  height: var(--space-4xl);
+  border-color: rgba(0, 180, 216, 0.4);
+  border-style: solid;
+  border-width: 0;
+  pointer-events: none;
+}
+
+.hero__corner--tl {
+  top: var(--space-lg);
+  left: var(--space-lg);
+  border-left-width: 2px;
+  border-top-width: 2px;
+}
+
+.hero__corner--tr {
+  top: var(--space-lg);
+  right: var(--space-lg);
+  border-right-width: 2px;
+  border-top-width: 2px;
+}
+
+.hero__corner--bl {
+  bottom: var(--space-md);
+  left: var(--space-lg);
+  border-left-width: 2px;
+  border-bottom-width: 2px;
+}
+
+.hero__corner--br {
+  bottom: var(--space-md);
+  right: var(--space-lg);
+  border-right-width: 2px;
+  border-bottom-width: 2px;
+}
+
+.hero--blueprint .hero__corner {
+  z-index: 12;
+  width: var(--space-4xl);
+  height: var(--space-4xl);
+  border-color: rgba(0, 180, 216, 0.4);
+  opacity: 1;
+  filter: none;
+}
+
+.hero--blueprint .hero__corner--tl {
+  top: calc(var(--header-height) + var(--space-sm));
+  left: var(--space-md);
+  border-left-width: 2px;
+  border-top-width: 2px;
+}
+
+.hero--blueprint .hero__corner--tr {
+  top: calc(var(--header-height) + var(--space-sm));
+  right: var(--space-md);
+  border-right-width: 2px;
+  border-top-width: 2px;
+}
+
+.hero--blueprint .hero__corner--bl,
+.hero--blueprint .hero__corner--br {
+  bottom: var(--space-xl);
+}
+
+.hero--blueprint .hero__corner--bl {
+  left: var(--space-md);
+  border-left-width: 2px;
+  border-bottom-width: 2px;
+}
+
+.hero--blueprint .hero__corner--br {
+  right: var(--space-md);
+  border-right-width: 2px;
+  border-bottom-width: 2px;
+}
+
+/* Blueprint: crosshair, ticks, dimension line */
+.hero__crosshair {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.hero__crosshair-h {
+  display: block;
+  width: 64px;
+  height: 1px;
+  background: rgba(0, 180, 216, 0.4);
+}
+
+.hero__crosshair-v {
+  position: absolute;
+  width: 1px;
+  height: 64px;
+  background: rgba(0, 180, 216, 0.4);
+}
+
+.hero__tick {
+  position: absolute;
+  z-index: 3;
+  font-family: var(--font-display);
+  font-size: 8px;
+  color: rgba(0, 180, 216, 0.5);
+}
+
+.hero__tick--tl {
+  top: var(--space-md);
+  left: var(--space-md);
+}
+
+.hero__tick--br {
+  bottom: var(--space-md);
+  right: var(--space-md);
+}
+
+.hero__dimension {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  margin-top: var(--space-sm);
+}
+
+.hero__dimension-line {
+  flex: 1;
+  height: 1px;
+  background: rgba(0, 180, 216, 0.3);
+}
+
+.hero__dimension-label {
+  font-family: var(--font-display);
+  font-size: 8px;
+  color: rgba(0, 180, 216, 0.5);
+  letter-spacing: 0.2em;
+}
+
+.hero--blueprint .hero__dimension {
+  align-self: stretch;
+  width: 100%;
+  max-width: 100%;
+  margin-top: var(--space-sm);
+  padding-top: var(--space-xs);
+  border-top: 1px solid rgba(0, 180, 216, 0.1);
+  justify-content: center;
+}
+
+.hero--blueprint .hero__dimension-line {
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(34, 211, 238, 0.2) 20%,
+    rgba(34, 211, 238, 0.38) 50%,
+    rgba(34, 211, 238, 0.2) 80%,
+    transparent
+  );
+}
+
+.hero--blueprint .hero__dimension-label {
+  letter-spacing: 0.07em;
+  color: rgba(34, 211, 238, 0.48);
+  text-shadow: 0 0 12px rgba(0, 180, 216, 0.22);
+}
+
+.hero__bottom-line {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: rgba(0, 180, 216, 0.2);
+}
+
+.hero--blueprint .hero__bottom-line {
+  display: none;
+}
+
+.hero--blueprint .button--hero {
+  font-size: 0.625rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  box-shadow: var(--glow-primary);
+}
+
+/* -----------------------------------------------------------------------------
+ * Responsive
+ * ----------------------------------------------------------------------------- */
+
+@media (max-width: 768px) {
+  .hero--blueprint {
+    min-height: 100vh;
+    min-height: 100svh;
+    min-height: 100dvh;
+    margin-bottom: 0;
+    padding-top: calc(var(--header-height) + var(--space-sm));
+    padding-bottom: var(--space-xl);
+  }
+
+  .hero--blueprint .hero__corner--bl,
+  .hero--blueprint .hero__corner--br {
+    bottom: var(--space-lg);
+  }
+
+  .hero__grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-2xl);
+  }
+
+  .hero__trust {
+    grid-template-columns: 1fr;
+    gap: var(--space-sm);
+  }
+
+  .hero--blueprint .hero__grid::before {
+    display: none;
+  }
+
+  .hero__media-glow-depth {
+    width: min(112%, 100vw);
+    height: min(82%, 420px);
+    filter: blur(44px);
+    opacity: 0.1;
+  }
+
+  .hero__media-glow {
+    width: min(122%, 100vw);
+    height: min(86%, 455px);
+    filter: blur(42px);
+    opacity: 0.14;
+  }
+
+  .hero--blueprint .hero__image-panel {
+    animation: heroFloatMobile 12s ease-in-out infinite;
+  }
+
+  .hero--blueprint .hero__image-frame--blueprint {
+    transform: scale(1.045);
+    transform-origin: 50% 50%;
+  }
+
+  .hero--blueprint .hero__image-stack {
+    -webkit-mask-image:
+      linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0.38) 0%,
+        rgba(0, 0, 0, 0.85) 7%,
+        rgba(0, 0, 0, 0.98) 15%,
+        #000 28%,
+        rgba(0, 0, 0, 0.93) 46%,
+        rgba(0, 0, 0, 0.58) 62%,
+        rgba(0, 0, 0, 0.2) 80%,
+        rgba(0, 0, 0, 0) 100%
+      ),
+      linear-gradient(
+        to bottom,
+        #000 0%,
+        #000 78%,
+        rgba(0, 0, 0, 0.28) 92%,
+        rgba(0, 0, 0, 0) 100%
+      );
+    mask-image:
+      linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0.38) 0%,
+        rgba(0, 0, 0, 0.85) 7%,
+        rgba(0, 0, 0, 0.98) 15%,
+        #000 28%,
+        rgba(0, 0, 0, 0.93) 46%,
+        rgba(0, 0, 0, 0.58) 62%,
+        rgba(0, 0, 0, 0.2) 80%,
+        rgba(0, 0, 0, 0) 100%
+      ),
+      linear-gradient(
+        to bottom,
+        #000 0%,
+        #000 78%,
+        rgba(0, 0, 0, 0.28) 92%,
+        rgba(0, 0, 0, 0) 100%
+      );
+    -webkit-mask-composite: source-in;
+    mask-composite: intersect;
+  }
+
+  .hero--blueprint .hero__image-frame--blueprint::after {
+    background:
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 0%, transparent 35%),
+      linear-gradient(
+        135deg,
+        rgba(80, 150, 255, 0.045) 0%,
+        transparent 52%,
+        transparent 100%
+      ),
+      linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.16) 0%,
+        transparent 36%,
+        transparent 58%,
+        rgba(0, 0, 0, 0.32) 100%
+      ),
+      linear-gradient(
+        to right,
+        hsl(var(--background) / 0) 0%,
+        hsl(var(--background) / 0.02) 22%,
+        hsl(var(--background) / 0.08) 38%,
+        hsl(var(--background) / 0.2) 52%,
+        hsl(var(--background) / 0.45) 66%,
+        hsl(var(--background) / 0.72) 82%,
+        var(--bg) 100%
+      );
+  }
+}
+
+@media (min-width: 768px) {
+  .hero--blueprint .hero__title {
+    font-size: 3rem;
+  }
+
+  .hero--blueprint .hero__image-frame--blueprint {
+    min-height: 450px;
+  }
+
+  .hero--blueprint .hero__image--blueprint {
+    min-height: 450px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero--blueprint .hero__title {
+    font-size: 3.75rem;
+  }
+
+  .hero--blueprint .hero__image-frame--blueprint {
+    min-height: 500px;
+  }
+
+  .hero--blueprint .hero__image--blueprint {
+    min-height: 500px;
+  }
+}

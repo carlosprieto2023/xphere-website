@@ -1,0 +1,27 @@
+/**
+ * Component: blueprint grid patterns (matches xphere-auto-inspect)
+ */
+
+.blueprint-grid {
+  background-image:
+    linear-gradient(hsl(200 60% 30% / 0.12) 1px, transparent 1px),
+    linear-gradient(90deg, hsl(200 60% 30% / 0.12) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.blueprint-grid-fine {
+  background-image:
+    linear-gradient(hsl(200 60% 30% / 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, hsl(200 60% 30% / 0.06) 1px, transparent 1px),
+    linear-gradient(hsl(200 60% 30% / 0.12) 1px, transparent 1px),
+    linear-gradient(90deg, hsl(200 60% 30% / 0.12) 1px, transparent 1px);
+  background-size:
+    10px 10px,
+    10px 10px,
+    40px 40px,
+    40px 40px;
+}
+
+.font-display {
+  font-family: var(--font-display);
+}

@@ -1,0 +1,118 @@
+/* Shared form input styling – used by contact form, dashboard, and detail page */
+
+.input-control,
+.contact-form input,
+.contact-form textarea,
+.contact-form select,
+.dashboard-search input,
+.dashboard-filters-grid select,
+.dashboard-filters-grid input[type='date'],
+.dashboard-notes input,
+.dashboard-card input[type='text'],
+.dashboard-card__actions select,
+.dashboard-card__assign select,
+.detail-field input,
+.detail-field select,
+.detail-note-form input,
+.detail-ops-form input,
+.detail-ops-form select {
+  width: 100%;
+  padding: var(--space-sm) var(--space-md);
+  color: var(--text);
+  background: var(--surface-dark);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--input-inset-highlight);
+}
+
+.input-control::placeholder,
+.contact-form input::placeholder,
+.contact-form textarea::placeholder,
+.dashboard-search input::placeholder,
+.dashboard-notes input::placeholder,
+.dashboard-card input[type='text']::placeholder,
+.detail-field input::placeholder,
+.detail-note-form input::placeholder,
+.detail-ops-form input::placeholder {
+  color: var(--muted-2);
+}
+
+.input-control:hover,
+.contact-form input:hover,
+.contact-form textarea:hover,
+.contact-form select:hover,
+.dashboard-search input:hover,
+.dashboard-filters-grid select:hover,
+.dashboard-filters-grid input[type='date']:hover,
+.dashboard-notes input:hover,
+.dashboard-card input[type='text']:hover,
+.dashboard-card__actions select:hover,
+.dashboard-card__assign select:hover,
+.detail-field input:hover,
+.detail-field select:hover,
+.detail-note-form input:hover,
+.detail-ops-form input:hover,
+.detail-ops-form select:hover {
+  border-color: var(--accent-hover);
+}
+
+.input-control:focus,
+.input-control:focus-visible,
+.contact-form input:focus,
+.contact-form input:focus-visible,
+.contact-form textarea:focus,
+.contact-form textarea:focus-visible,
+.contact-form select:focus,
+.contact-form select:focus-visible,
+.dashboard-search input:focus,
+.dashboard-search input:focus-visible,
+.dashboard-filters-grid select:focus,
+.dashboard-filters-grid select:focus-visible,
+.dashboard-filters-grid input[type='date']:focus,
+.dashboard-filters-grid input[type='date']:focus-visible,
+.dashboard-notes input:focus,
+.dashboard-notes input:focus-visible,
+.dashboard-card input[type='text']:focus,
+.dashboard-card input[type='text']:focus-visible,
+.dashboard-card__actions select:focus,
+.dashboard-card__actions select:focus-visible,
+.dashboard-card__assign select:focus,
+.dashboard-card__assign select:focus-visible,
+.detail-field input:focus,
+.detail-field input:focus-visible,
+.detail-field select:focus,
+.detail-field select:focus-visible,
+.detail-note-form input:focus,
+.detail-note-form input:focus-visible,
+.detail-ops-form input:focus,
+.detail-ops-form input:focus-visible,
+.detail-ops-form select:focus,
+.detail-ops-form select:focus-visible {
+  outline: none;
+  border-color: var(--accent-focus);
+  box-shadow: 0 0 0 var(--focus-ring-width) var(--focus-ring-color);
+}
+
+/* Single-line inputs: consistent height */
+.contact-form input:not(textarea),
+.contact-form select,
+.dashboard-search input,
+.dashboard-filters-grid select,
+.dashboard-filters-grid input[type='date'],
+.dashboard-notes input,
+.dashboard-card input[type='text'],
+.detail-field input,
+.detail-field select,
+.detail-note-form input,
+.detail-ops-form input,
+.detail-ops-form select {
+  min-height: calc(var(--space-xl) + var(--space-sm));
+}
+
+.dashboard-card__actions select,
+.dashboard-card__assign select {
+  min-height: var(--space-xl);
+  padding: var(--space-xs) var(--space-sm);
+  background: var(--surface-dark-2);
+  border-radius: var(--radius-sm);
+}

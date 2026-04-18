@@ -1,0 +1,232 @@
+/* Navbar – public nav + admin tools (matches xphere-auto-inspect) */
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  height: var(--header-height);
+  padding: 0;
+  background: rgba(13, 21, 32, 0.8);
+  border-bottom: 1px solid rgba(0, 180, 216, 0.15);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  transition: box-shadow 0.2s ease;
+}
+
+.navbar--scrolled {
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+}
+
+.navbar__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 3.5rem;
+  gap: var(--space-m);
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.navbar__logo {
+  position: relative;
+  z-index: 10;
+  flex-shrink: 0;
+  color: var(--text);
+  font-family: var(--font-display);
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: var(--tracking-widest);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.navbar__logo .navbar__logo-accent {
+  color: var(--accent);
+}
+
+.navbar__logo .logo {
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  cursor: pointer;
+  transition: opacity 0.15s ease;
+}
+
+.navbar__logo .logo:hover {
+  opacity: 0.85;
+}
+
+.navbar__nav {
+  display: flex;
+  align-items: center;
+}
+
+.navbar__nav--center {
+  flex: 1;
+  justify-content: center;
+}
+
+.navbar__nav-list {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.navbar__nav-list li {
+  margin: 0;
+}
+
+.navbar__nav a {
+  position: relative;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  transition: color 0.2s ease;
+}
+
+.navbar__nav a:hover {
+  color: var(--accent);
+}
+
+.navbar__nav a.active {
+  color: var(--accent);
+}
+
+.navbar__nav a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -0.35rem;
+  width: 100%;
+  height: 1px;
+  background: var(--accent-subtle);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.15s ease;
+}
+
+.navbar__nav a:hover::after {
+  transform: scaleX(1);
+}
+
+.navbar__nav a:focus-visible {
+  outline: var(--focus-ring-width) solid var(--accent);
+  outline-offset: var(--focus-outline-offset);
+  border-radius: var(--radius-xs);
+}
+
+.navbar__menu {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-m);
+}
+
+.navbar__actions {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.navbar__cta {
+  margin-top: 0;
+  text-decoration: none;
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease,
+    filter 0.15s ease;
+}
+
+.navbar__cta:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+  filter: brightness(1.05);
+}
+
+.navbar__admin-link {
+  position: relative;
+  color: var(--text-secondary);
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.navbar__admin-link.active {
+  color: var(--accent);
+}
+
+.navbar__logout {
+  position: relative;
+  color: var(--text-secondary);
+  font-weight: 500;
+  transition: color 0.15s ease;
+}
+
+.navbar__admin-link:hover,
+.navbar__logout:hover {
+  color: var(--text-primary);
+}
+
+.navbar__admin-link::after,
+.navbar__logout::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -0.35rem;
+  width: 100%;
+  height: 1px;
+  background: var(--accent-subtle);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.15s ease;
+}
+
+.navbar__admin-link:hover::after,
+.navbar__logout:hover::after {
+  transform: scaleX(1);
+}
+
+.navbar__logout {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font: inherit;
+}
+
+/* Hamburger – hidden on desktop */
+.navbar__hamburger {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  background: none;
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-sm);
+  color: var(--muted);
+  font-size: 1.25rem;
+  cursor: pointer;
+  transition:
+    color var(--transition-normal),
+    border-color var(--transition-normal);
+}
+
+.navbar__hamburger:hover {
+  color: var(--text);
+  border-color: var(--accent-border-hover);
+}
+
+.navbar__hamburger:focus-visible {
+  outline: var(--focus-ring-width) solid var(--accent);
+  outline-offset: var(--focus-outline-offset);
+}

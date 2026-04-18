@@ -1,0 +1,106 @@
+/* ========================================
+   HOME — PROCESS
+   How it works
+======================================== */
+
+.home #process.home-section {
+  scroll-margin-top: var(--section-scroll-margin-top);
+  padding-top: var(--space-4xl);
+  padding-bottom: var(--space-4xl);
+  min-height: 0;
+  height: auto;
+  overflow: visible;
+  animation: none;
+}
+
+.home #process.home-section .section__content {
+  position: relative;
+  z-index: 2;
+  overflow: visible;
+}
+
+.section--how {
+  background: var(--surface-alt);
+}
+
+.section__how-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    var(--surface-alt) 0%,
+    rgba(255, 255, 255, 0.02) 50%,
+    var(--surface-alt) 100%
+  );
+  pointer-events: none;
+}
+
+.how-header {
+  text-align: center;
+  max-width: var(--content-max-narrow);
+  margin: 0 auto var(--space-2xl);
+}
+
+.how-header .section__eyebrow {
+  margin-bottom: var(--space-sm);
+}
+
+.how-header .section__title {
+  margin-bottom: 0;
+}
+
+.how-process {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr;
+  align-items: stretch;
+  gap: var(--space-md);
+  max-width: 72rem;
+  margin-inline: auto;
+}
+
+.how-process__card {
+  position: relative;
+}
+
+.how-process__step-label {
+  margin: 0 0 var(--space-sm);
+  font-size: var(--text-label);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.how-process__connector {
+  align-self: center;
+  width: var(--space-lg);
+  height: 1px;
+  background: rgba(0, 180, 216, 0.18);
+}
+
+@media (max-width: 1024px) {
+  .how-process {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-md);
+  }
+
+  .how-process__connector {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .home #process.home-section {
+    padding-top: var(--space-3xl);
+    padding-bottom: var(--space-3xl);
+  }
+
+  .how-header {
+    margin-bottom: var(--space-xl);
+  }
+
+  .how-process {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+}

@@ -1,0 +1,23 @@
+/* Shared text and form helpers */
+
+.form-message {
+  margin: 0;
+  font-size: var(--text-body);
+}
+
+.success {
+  color: var(--success);
+}
+
+.error {
+  color: var(--error);
+}
+
+.dashboard-card__top span,
+.dashboard-card__id,
+.dashboard-notes small,
+.detail-notes-list small,
+.detail-activity-list small,
+.detail-attachments-list small {
+  color: var(--muted-2);
+}

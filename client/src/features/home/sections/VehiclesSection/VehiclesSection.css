@@ -1,0 +1,364 @@
+/* ========================================
+   HOME — VEHICLES
+======================================== */
+
+.section__vehicle-coverage-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    var(--bg) 0%,
+    transparent 45%,
+    var(--bg) 100%
+  );
+  pointer-events: none;
+}
+
+/* Softer blueprint grid so content leads */
+.section--vehicle-coverage .section__blueprint-bg.blueprint-grid-fine {
+  background-image:
+    linear-gradient(hsl(200 60% 30% / 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, hsl(200 60% 30% / 0.04) 1px, transparent 1px),
+    linear-gradient(hsl(200 60% 30% / 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, hsl(200 60% 30% / 0.08) 1px, transparent 1px);
+  background-size:
+    10px 10px,
+    10px 10px,
+    40px 40px,
+    40px 40px;
+}
+
+.section__bottom-line--vehicle-coverage {
+  background: rgba(0, 180, 216, 0.15);
+}
+
+.home #vehicles.home-section {
+  scroll-margin-top: var(--section-scroll-margin-top);
+  padding-top: var(--space-4xl);
+  padding-bottom: var(--space-4xl);
+  min-height: 0;
+  height: auto;
+  overflow: visible;
+  animation: none;
+}
+
+.home #vehicles.home-section .section__content {
+  position: relative;
+  z-index: 2;
+  overflow: visible;
+}
+
+.vehicle-coverage__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(19rem, 0.8fr);
+  gap: var(--space-2xl);
+  align-items: start;
+  max-width: 72rem;
+  margin-inline: auto;
+}
+
+.vehicle-coverage__intro-column {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+  min-width: 0;
+}
+
+.vehicle-coverage__intro-head {
+  padding-right: var(--space-md);
+}
+
+.vehicle-coverage__intro-head .section__eyebrow {
+  margin-bottom: var(--space-xs);
+}
+
+.vehicle-coverage__title {
+  margin: 0 0 var(--space-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-shadow: 0 0 20px rgba(59, 130, 246, 0.25);
+}
+
+.vehicle-coverage__text {
+  margin: 0;
+  max-width: 38rem;
+}
+
+.vehicle-coverage__intro-body {
+  padding-right: var(--space-md);
+}
+
+.vehicle-coverage__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.vehicle-coverage__item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-sm) var(--space-md);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(10, 20, 35, 0.25);
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.vehicle-coverage__item:hover {
+  transform: translateY(calc(-1 * var(--space-2xs)));
+  border-color: rgba(0, 160, 255, 0.42);
+  background: rgba(0, 30, 60, 0.36);
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.34);
+}
+
+.vehicle-coverage__item-icon {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: var(--space-2xl);
+  height: var(--space-2xl);
+  border-radius: var(--radius-sm);
+  background: rgba(34, 211, 238, 0.08);
+  border: 1px solid rgba(0, 180, 216, 0.22);
+  color: var(--accent);
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    background 0.25s ease;
+}
+
+.vehicle-coverage__item:hover .vehicle-coverage__item-icon {
+  transform: scale(1.04);
+  border-color: rgba(0, 180, 216, 0.36);
+  background: rgba(34, 211, 238, 0.11);
+}
+
+.vehicle-coverage__item-icon svg {
+  display: block;
+  width: 2rem;
+  height: 2rem;
+  flex-shrink: 0;
+}
+
+.vehicle-coverage__item-body {
+  min-width: 0;
+}
+
+.vehicle-coverage__item-title {
+  margin: 0 0 var(--space-2xs);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  line-height: var(--line-height-heading);
+  color: rgba(230, 240, 255, 0.95);
+}
+
+.vehicle-coverage__item-text {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: var(--line-height-body);
+  color: var(--muted);
+  opacity: 0.78;
+}
+
+.vehicle-coverage__panel {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-self: start;
+  gap: var(--space-md);
+  padding: var(--space-xl);
+  border: 1px solid rgba(0, 160, 255, 0.2);
+  background: linear-gradient(
+    180deg,
+    rgba(24, 36, 68, 0.88),
+    rgba(8, 14, 38, 0.96)
+  );
+  box-shadow:
+    0 22px 60px rgba(0, 0, 0, 0.45),
+    0 0 32px rgba(0, 160, 255, 0.06),
+    inset 0 0 0 1px rgba(0, 160, 255, 0.08);
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.vehicle-coverage__panel:hover {
+  transform: translateY(calc(-1 * var(--space-2xs)));
+  border-color: rgba(0, 160, 255, 0.26);
+  box-shadow:
+    0 24px 64px rgba(0, 0, 0, 0.48),
+    0 0 32px rgba(59, 130, 246, 0.1),
+    inset 0 0 0 1px rgba(0, 160, 255, 0.1);
+}
+
+.vehicle-coverage__panel-eyebrow {
+  margin: 0;
+  font-size: var(--text-label);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  opacity: 0.88;
+}
+
+.vehicle-coverage__panel-title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--text-h3);
+  font-weight: 700;
+  line-height: var(--line-height-heading);
+  letter-spacing: var(--tracking-tight);
+  color: var(--text);
+}
+
+.vehicle-coverage__panel-text {
+  margin: 0;
+  font-size: var(--text-small);
+  line-height: 1.6;
+  color: var(--text-secondary);
+  max-width: 30rem;
+}
+
+.vehicle-coverage__capabilities {
+  margin: 0;
+  padding: var(--space-sm) 0 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.vehicle-coverage__capability {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-xs);
+  font-size: var(--text-small);
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+
+.vehicle-coverage__capability-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--accent);
+  margin-top: 0.1rem;
+}
+
+.vehicle-coverage__capability-icon svg {
+  width: 0.9rem;
+  height: 0.9rem;
+}
+
+.vehicle-coverage__panel-actions {
+  margin-top: var(--space-xs);
+  padding-top: var(--space-sm);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.vehicle-coverage__panel-actions .button {
+  margin-top: 0;
+}
+
+.vehicle-coverage__panel-actions .button.button--hero {
+  box-shadow:
+    0 4px 14px rgba(34, 211, 238, 0.2),
+    0 2px 8px rgba(59, 130, 246, 0.12),
+    var(--shadow-sm);
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.vehicle-coverage__panel-actions .button.button--hero:hover {
+  transform: translateY(calc(-1 * var(--space-2xs)));
+  box-shadow:
+    0 7px 20px rgba(34, 211, 238, 0.28),
+    0 0 28px rgba(34, 211, 238, 0.1),
+    var(--shadow-md);
+}
+
+.vehicle-coverage__panel-trust {
+  margin: 0;
+  padding: var(--space-sm) 0 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs) var(--space-sm);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.vehicle-coverage__panel-trust-item {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  line-height: 1.5;
+  text-transform: uppercase;
+  color: rgba(220, 235, 255, 0.62);
+}
+
+@media (max-width: 1024px) {
+  .vehicle-coverage__grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+  }
+
+  .vehicle-coverage__intro-head,
+  .vehicle-coverage__intro-body {
+    padding-right: 0;
+  }
+
+  .vehicle-coverage__panel {
+    align-self: stretch;
+  }
+}
+
+@media (max-width: 768px) {
+  .home #vehicles.home-section {
+    padding-top: var(--space-3xl);
+    padding-bottom: var(--space-3xl);
+  }
+
+  .vehicle-coverage__grid {
+    gap: var(--space-lg);
+  }
+
+  .vehicle-coverage__panel {
+    padding: var(--space-lg);
+  }
+
+  .vehicle-coverage__panel-actions .button {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vehicle-coverage__item,
+  .vehicle-coverage__item-icon,
+  .vehicle-coverage__panel,
+  .vehicle-coverage__panel-actions .button.button--hero {
+    transition: none;
+  }
+
+  .vehicle-coverage__item:hover,
+  .vehicle-coverage__panel:hover,
+  .vehicle-coverage__panel-actions .button.button--hero:hover {
+    transform: none;
+  }
+
+  .vehicle-coverage__item:hover .vehicle-coverage__item-icon {
+    transform: none;
+  }
+}
