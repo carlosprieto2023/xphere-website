@@ -81,17 +81,20 @@ const contactSchema = new mongoose.Schema(
       required: true,
       trim: true,
     },
+
     email: {
       type: String,
       required: true,
       trim: true,
       lowercase: true,
     },
+
     phone: {
       type: String,
       trim: true,
       default: '',
     },
+
     message: {
       type: String,
       required: true,
@@ -122,11 +125,11 @@ const contactSchema = new mongoose.Schema(
     serviceType: {
       type: String,
       enum: [
-        'vehicle_appraisal',
-        'pre_purchase_inspection',
-        'condition_report',
-        'dealer_inspection',
-        'fleet_inspection',
+        'pre_purchase',
+        'auction',
+        'dealer',
+        'fleet',
+        'appraisal',
         'other',
       ],
       default: 'other',
