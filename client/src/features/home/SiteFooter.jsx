@@ -13,12 +13,6 @@ function SiteFooter() {
           </p>
         </div>
         <nav className="site-footer__links" aria-label="Footer">
-          <a className="site-footer__link" href="#services">
-            Services
-          </a>
-          <a className="site-footer__link" href="#contact">
-            Contact
-          </a>
           <Link className="site-footer__staff" to="/admin/login">
             Staff
           </Link>
