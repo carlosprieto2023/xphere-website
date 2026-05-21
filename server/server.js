@@ -3,7 +3,15 @@ const fs = require('fs');
 const express = require('express');
 const morgan = require('morgan');
 const cors = require('cors');
+const mongoose = require('mongoose');
 require('dotenv').config();
+
+if (!process.env.JWT_SECRET?.trim()) {
+  console.error(
+    'JWT_SECRET must be set (used to sign admin tokens). Add it in your environment (e.g. Render → Environment).'
+  );
+  process.exit(1);
+}
 
 require('./config/db');
 
@@ -18,8 +26,27 @@ app.use(cors());
 app.use(morgan(process.env.NODE_ENV === 'production' ? 'combined' : 'dev'));
 app.use(express.json());
 
+const DB_STATE = {
+  0: 'disconnected',
+  1: 'connected',
+  2: 'connecting',
+  3: 'disconnecting',
+};
+
 app.get('/api/health', (req, res) => {
-  res.json({ message: 'Xphere API is running' });
+  const ready = mongoose.connection.readyState;
+  const body = {
+    ok: ready === 1,
+    message: 'Xphere API is running',
+    db: {
+      state: ready,
+      status: DB_STATE[ready] ?? 'unknown',
+    },
+  };
+  if (ready !== 1) {
+    return res.status(503).json(body);
+  }
+  res.json(body);
 });
 
 app.use('/api/contact', require('./routes/contactRoutes'));

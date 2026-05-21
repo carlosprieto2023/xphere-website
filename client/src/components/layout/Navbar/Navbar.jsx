@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom';
 import {
-    PRIMARY_NAV_SECTIONS,
-    computeActiveSection,
+  PRIMARY_NAV_SECTIONS,
+  computeActiveSection,
 } from '../../../constants/navigation';
 
 function Navbar() {
@@ -167,7 +167,7 @@ function Navbar() {
                   ))}
                 </ul>
               </nav>
-              <div className="navbar__actions">
+              {/* <div className="navbar__actions">
                 <a
                   href="/#contact"
                   className="button navbar__cta"
@@ -175,7 +175,7 @@ function Navbar() {
                 >
                   Request Inspection
                 </a>
-              </div>
+              </div> */}
             </>
           )}
         </div>

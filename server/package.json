@@ -6,6 +6,8 @@
     "dev": "nodemon server.js",
     "build": "npm install --prefix ../client --include=dev && npm run build --prefix ../client",
     "start": "node server.js",
+    "admin:password": "node scripts/updateAdminPassword.js",
+    "admin:list": "node scripts/listAdmins.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],

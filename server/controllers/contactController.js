@@ -38,8 +38,7 @@ async function createContact(req, res) {
 
     if (resolvedServiceType === 'other' && !trimmedDetail) {
       return res.status(400).json({
-        message:
-          'Please describe your inspection type when selecting Other.',
+        message: 'Please describe your inspection type when selecting Other.',
       });
     }
 
@@ -74,6 +73,9 @@ async function createContact(req, res) {
       contact,
     });
   } catch (error) {
+    console.error('CREATE CONTACT ERROR:', error);
+
+    console.error('Error submitting inquiry:', error.message);
     res.status(500).json({
       message: 'Server error while submitting inquiry.',
       error: error.message,
@@ -196,7 +198,15 @@ async function getContactStats(req, res) {
 
     const now = new Date();
     const startOfMonth = new Date(now.getFullYear(), now.getMonth(), 1);
-    const endOfMonth = new Date(now.getFullYear(), now.getMonth() + 1, 0, 23, 59, 59, 999);
+    const endOfMonth = new Date(
+      now.getFullYear(),
+      now.getMonth() + 1,
+      0,
+      23,
+      59,
+      59,
+      999
+    );
     const monthQuery = {
       ...query,
       createdAt: { $gte: startOfMonth, $lte: endOfMonth },

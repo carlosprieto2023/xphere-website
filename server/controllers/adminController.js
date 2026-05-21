@@ -17,8 +17,11 @@ function createToken(admin) {
 async function loginAdmin(req, res) {
   try {
     const { email, password } = req.body;
+    const emailNorm = String(email || '')
+      .trim()
+      .toLowerCase();
 
-    const admin = await Admin.findOne({ email: email.toLowerCase() });
+    const admin = await Admin.findOne({ email: emailNorm });
 
     if (!admin) {
       return res.status(401).json({ message: 'Invalid credentials' });
